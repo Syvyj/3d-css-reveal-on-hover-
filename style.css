@@ -6,166 +6,156 @@
 
 /* Styles for the body of the page */
 body {
-  background-color: #1d1e22; /* Dark background */
-  overflow: hidden; /* Hide scrollable content */
-  display: flex; /* Use flexbox for aligning child elements */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Wrapper for the box */
+.wrapper {
+  margin-top: 40px;
+}
+
 .box-wrapper {
-  position: relative; /* Use relative positioning for internal coordinates */
-  width: 500px; /* Width */
-  height: 350px; /* Height */
-  box-shadow: 0px 25px 35px -25px rgba(75, 69, 69, 0.5); /* Shadow around the wrapper */
-  top: 250px; /* Top offset */
+  position: relative;
+  width: 500px;
+  height: 350px;
+  top: 250px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7), 0px 5px 10px rgba(0, 0, 0, 0.7);
+  border-radius: 25px;
+  overflow: visible;
 }
 
-/* Animation when hovering over box-wrapper: rotates the side elements in box-top */
-.box-wrapper:hover .box-top .side {
-  transform: rotateX(0deg); /* Rotates the sides to a frontal position */
+/* Animation when hovering over box-wrapper: rotates the side elements in second */
+.box-wrapper:hover .second .side {
+  transform: rotateX(0deg);
 }
 
-/* Transparency effects for side elements in box-top on hover */
-.box-wrapper:hover .box-top .side:after {
-  opacity: 0; /* Becomes invisible */
-  transition-delay: 0.2s; /* Delay before disappearing */
+/* Transparency effects for side elements in second on hover */
+.box-wrapper:hover .second .side:after {
+  opacity: 0;
+  transition-delay: 0.2s;
 }
 
 /* Animation for the side elements of the main box on hover */
-.box-wrapper:hover .box-main .side:after {
-  opacity: 1; /* Becomes visible */
+.box-wrapper:hover .first .side:after {
+  opacity: 1;
 }
-.box-wrapper:hover .box-main .side2 {
-  transform: rotateY(-90deg) translateX(250px); /* Rotates the second side to the left */
+
+.box-wrapper:hover .first .side2 {
+  transform: rotateY(-90deg) translateX(250px);
 }
-.box-wrapper:hover .box-main .side1 {
-  transform: rotateY(-90deg) translateX(-250px); /* Rotates the first side to the right */
+
+.box-wrapper:hover .first .side1 {
+  transform: rotateY(-90deg) translateX(-250px);
 }
 
 /* Basic styles for elements with the class "box" */
 .box {
-  position: absolute; /* Absolute positioning within the wrapper */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 500px; /* Box width */
-  height: 350px; /* Box height */
-  transition: 0.5s linear all; /* Animation for all style changes */
-  display: flex; /* Use flexbox for aligning content */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  font-size: 50px; /* Text size inside */
-  background-size: 500px 350px; /* Background size matches the box size */
+  width: 500px;
+  height: 350px;
+  transition: 0.5s linear all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  background-size: 500px 350px;
 }
 
 /* Styles for headings inside the box */
 .box h2 {
-  color: white; /* White text */
-  font-family: sans-serif; /* Sans-serif font */
-  width: 200%; /* Double width for displaying offsets */
-  height: 100%; /* Full height */
+  color: white;
+  font-family: sans-serif;
+  width: 200%;
+  height: 100%;
   display: flex;
-  align-items: baseline; /* Align text to the baseline */
-  justify-content: center; /* Center the text */
+  align-items: baseline;
+  justify-content: center;
 }
 
 /* Styles for the box sides */
 .box .side {
-  overflow: hidden; /* Hide overflow content */
+  overflow: hidden;
   position: relative;
-  width: 250px; /* Half the width of the box */
-  height: 350px; /* Full height of the box */
-  background-size: 500px 350px; /* Background size */
-  transition: 0.5s linear transform; /* Transformation animation */
-  transition: 1s cubic-bezier(0.5, -0.03, 0.58, 1.08) transform; /* Smooth effect */
+  width: 250px;
+  height: 350px;
+  background-size: 500px 350px;
+  transition: 1s cubic-bezier(0.5, -0.03, 0.58, 1.08) transform, 1s opacity;
+  will-change: transform, opacity;
 }
 
 /* Pseudo-elements after the box sides */
 .box .side:after {
-  content: ""; /* Empty content */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
   transition: 1s cubic-bezier(0.5, -0.03, 0.58, 1.08) opacity; /* Transparency animation */
 }
 
 /* Background positioning for the first side */
 .box .side1 {
-  background-position: 0% 0%; /* Top-left corner */
+  background-position: 0% 0%;
+  transform-origin: left;
+  border-radius: 25px 0 0 25px;
 }
 
 /* Background positioning for the second side */
 .box .side2 {
-  background-position: 100% 0; /* Top-right corner */
+  background-position: 100% 0;
+  transform-origin: right;
+  border-radius: 0 25px 25px 0;
 }
 
 /* Adjusts the text position for the second side */
 .box .side2 h2 {
-  transform: translateX(-50%); /* Shifts text to the left */
+  transform: translateX(-50%);
 }
 
 /* Settings for the main box */
-.box.box-main {
-  transform-origin: bottom; /* Rotation origin at the bottom */
+.box.first {
+  transform-origin: bottom;
 }
-.box.box-main .side {
-  background-image: url(./images/1.jpg); /* Background image */
-}
-.box.box-main .side1 {
-  transform-origin: left; /* Rotation origin at the left */
-}
-.box.box-main .side2 {
-  transform-origin: right; /* Rotation origin at the right */
+.box.first .side {
+  background-image: url(./images/1.jpg);
 }
 
 /* Transparency for the sides of the main box */
-.box.box-main .side:after {
-  opacity: 0; /* Initially invisible */
+.box.first .side:after {
+  opacity: 0;
 }
-.box.box-main .side1:after {
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.9)
-  ); /* Gradient on the first side */
+.box.first .side1:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
 }
-.box.box-main .side2:after {
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.5)
-  ); /* Gradient on the second side */
+.box.first .side2:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
 }
 
 /* Settings for the top box */
-.box.box-top {
-  transform-origin: bottom; /* Rotation origin at the bottom */
+.box.second {
+  transform-origin: bottom;
 }
-.box.box-top .side1 {
-  transform-origin: right; /* Rotation origin at the right */
-  transform: rotateY(-90deg) translateX(-250px); /* Initial rotation */
+.box.second .side1 {
+  transform-origin: right;
+  transform: rotateY(-90deg) translateX(-250px);
 }
-.box.box-top .side1:after {
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.2)
-  ); /* Gradient */
+.box.second .side1:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
 }
-.box.box-top .side2 {
-  transform-origin: left; /* Rotation origin at the left */
-  transform: rotateY(-90deg) translateX(-250px); /* Initial rotation */
+.box.second .side2 {
+  transform-origin: left;
+  transform: rotateY(90deg) translateX(250px);
 }
-.box.box-top .side2:after {
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.7)
-  ); /* Gradient */
+.box.second .side2:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
 }
-.box.box-top .side {
-  background-image: url(./images/2.jpg); /* Background image for the top box */
+.box.second .side {
+  background-image: url(./images/2.jpg);
 }
