@@ -1,0 +1,171 @@
+/* Sets the global margin and padding for all elements to 0 to avoid unwanted spacing */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for the body of the page */
+body {
+  background-color: #1d1e22; /* Dark background */
+  overflow: hidden; /* Hide scrollable content */
+  display: flex; /* Use flexbox for aligning child elements */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+/* Wrapper for the box */
+.box-wrapper {
+  position: relative; /* Use relative positioning for internal coordinates */
+  width: 500px; /* Width */
+  height: 350px; /* Height */
+  box-shadow: 0px 25px 35px -25px rgba(75, 69, 69, 0.5); /* Shadow around the wrapper */
+  top: 250px; /* Top offset */
+}
+
+/* Animation when hovering over box-wrapper: rotates the side elements in box-top */
+.box-wrapper:hover .box-top .side {
+  transform: rotateX(0deg); /* Rotates the sides to a frontal position */
+}
+
+/* Transparency effects for side elements in box-top on hover */
+.box-wrapper:hover .box-top .side:after {
+  opacity: 0; /* Becomes invisible */
+  transition-delay: 0.2s; /* Delay before disappearing */
+}
+
+/* Animation for the side elements of the main box on hover */
+.box-wrapper:hover .box-main .side:after {
+  opacity: 1; /* Becomes visible */
+}
+.box-wrapper:hover .box-main .side2 {
+  transform: rotateY(-90deg) translateX(250px); /* Rotates the second side to the left */
+}
+.box-wrapper:hover .box-main .side1 {
+  transform: rotateY(-90deg) translateX(-250px); /* Rotates the first side to the right */
+}
+
+/* Basic styles for elements with the class "box" */
+.box {
+  position: absolute; /* Absolute positioning within the wrapper */
+  top: 0;
+  left: 0;
+  width: 500px; /* Box width */
+  height: 350px; /* Box height */
+  transition: 0.5s linear all; /* Animation for all style changes */
+  display: flex; /* Use flexbox for aligning content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  font-size: 50px; /* Text size inside */
+  background-size: 500px 350px; /* Background size matches the box size */
+}
+
+/* Styles for headings inside the box */
+.box h2 {
+  color: white; /* White text */
+  font-family: sans-serif; /* Sans-serif font */
+  width: 200%; /* Double width for displaying offsets */
+  height: 100%; /* Full height */
+  display: flex;
+  align-items: baseline; /* Align text to the baseline */
+  justify-content: center; /* Center the text */
+}
+
+/* Styles for the box sides */
+.box .side {
+  overflow: hidden; /* Hide overflow content */
+  position: relative;
+  width: 250px; /* Half the width of the box */
+  height: 350px; /* Full height of the box */
+  background-size: 500px 350px; /* Background size */
+  transition: 0.5s linear transform; /* Transformation animation */
+  transition: 1s cubic-bezier(0.5, -0.03, 0.58, 1.08) transform; /* Smooth effect */
+}
+
+/* Pseudo-elements after the box sides */
+.box .side:after {
+  content: ""; /* Empty content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1s cubic-bezier(0.5, -0.03, 0.58, 1.08) opacity; /* Transparency animation */
+}
+
+/* Background positioning for the first side */
+.box .side1 {
+  background-position: 0% 0%; /* Top-left corner */
+}
+
+/* Background positioning for the second side */
+.box .side2 {
+  background-position: 100% 0; /* Top-right corner */
+}
+
+/* Adjusts the text position for the second side */
+.box .side2 h2 {
+  transform: translateX(-50%); /* Shifts text to the left */
+}
+
+/* Settings for the main box */
+.box.box-main {
+  transform-origin: bottom; /* Rotation origin at the bottom */
+}
+.box.box-main .side {
+  background-image: url(./images/1.jpg); /* Background image */
+}
+.box.box-main .side1 {
+  transform-origin: left; /* Rotation origin at the left */
+}
+.box.box-main .side2 {
+  transform-origin: right; /* Rotation origin at the right */
+}
+
+/* Transparency for the sides of the main box */
+.box.box-main .side:after {
+  opacity: 0; /* Initially invisible */
+}
+.box.box-main .side1:after {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.9)
+  ); /* Gradient on the first side */
+}
+.box.box-main .side2:after {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.5)
+  ); /* Gradient on the second side */
+}
+
+/* Settings for the top box */
+.box.box-top {
+  transform-origin: bottom; /* Rotation origin at the bottom */
+}
+.box.box-top .side1 {
+  transform-origin: right; /* Rotation origin at the right */
+  transform: rotateY(-90deg) translateX(-250px); /* Initial rotation */
+}
+.box.box-top .side1:after {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.2)
+  ); /* Gradient */
+}
+.box.box-top .side2 {
+  transform-origin: left; /* Rotation origin at the left */
+  transform: rotateY(-90deg) translateX(-250px); /* Initial rotation */
+}
+.box.box-top .side2:after {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.7)
+  ); /* Gradient */
+}
+.box.box-top .side {
+  background-image: url(./images/2.jpg); /* Background image for the top box */
+}
