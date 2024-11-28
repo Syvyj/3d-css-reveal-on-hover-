@@ -1,5 +1,6 @@
-Description
-This project demonstrates the animation of opening boxes on hover. The project includes two types of boxes:
+![Sample](./images/Sample.png)
+
+The project includes two types of boxes:
 
 1. A box with an image inside.
 2. A box with text inside.
@@ -22,5 +23,5 @@ Requirements
 
 Usage
 
-- Open [this link](https://syvyj.github.io/3d-css-reveal-on-hover-/).
+- Open [this link](https://syvyj.github.io/Open-Box-Hover-Animation/).
 - Hover over the boxes to see the animations in action.
