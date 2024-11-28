@@ -1,6 +1,6 @@
-![Sample](./images/Sample.png)
-
 The project includes two types of boxes:
+
+![Sample](./images/Sample.png)
 
 1. A box with an image inside.
 2. A box with text inside.
